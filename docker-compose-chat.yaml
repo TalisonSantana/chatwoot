@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:12
+    restart: always
+    ports:
+      - '5432:5432'
+    volumes:
+      - chatwoot-volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=chatwoot_production
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+
+  redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - ./data/redis:/var/lib/redis/data
+    ports:
+      - '6379:6379'
+
+volumes:
+  chatwoot-volume:
+      external: false
