@@ -15,6 +15,8 @@ do
   sleep 2;
 done
 
+bundle exec rails webpacker:clobber
+
 echo "Ready to run webpack development server."
 
 exec "$@"

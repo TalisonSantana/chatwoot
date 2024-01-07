@@ -98,13 +98,14 @@ RUN apk update && apk add --no-cache \
   openssl \
   tzdata \
   postgresql-client \
+  nodejs \
   imagemagick \
   git \
   vips \
   && gem install bundler
 
 RUN if [ "$RAILS_ENV" != "production" ]; then \
-  apk add --no-cache nodejs-current yarn; \
+  apk add --no-cache nodejs yarn; \
   fi
 
 COPY --from=pre-builder /gems/ /gems/
