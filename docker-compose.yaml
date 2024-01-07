@@ -69,7 +69,7 @@ services:
     volumes:
       - chatwoot-volume:/var/lib/postgresql/data
     environment:
-      # - POSTGRES_DB=chatwoot_dev
+      - POSTGRES_DB=chatwoot_production
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=3Vjph9gRnURNFUjdMMUK
 
